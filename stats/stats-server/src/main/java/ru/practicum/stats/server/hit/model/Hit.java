@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import ru.practicum.stats.server.hit.utils.Patterns;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -23,9 +24,11 @@ public class Hit {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-
+    @NotBlank
     private String uri;
+    @NotBlank
     private String app;
+    @NotBlank
     private String ip;
 
     @DateTimeFormat(pattern = Patterns.DATE_PATTERN)
