@@ -58,18 +58,18 @@ public class CompilationServiceImpl implements CompilationService {
     @Override
     @Transactional
     public CompilationDto updateCompilation(Long compId,
-                                            SavedCompilationDto compilationUpdateRequest) {
+                                            SavedCompilationDto savedCompilationDto) {
         var old = compilationRepository.findById(compId).orElseThrow(
                 () -> new NotExistException("Compilation does not exist"));
-        var eventsIds = compilationUpdateRequest.getEvents();
+        var eventsIds = savedCompilationDto.getEvents();
         if (eventsIds != null) {
             var events = eventRepository.findAllByIdIn(eventsIds);
             old.setEvents(new HashSet<>(events));
         }
-        if (compilationUpdateRequest.getPinned() != null)
-            old.setPinned(compilationUpdateRequest.getPinned());
-        if (compilationUpdateRequest.getTitle() != null && !compilationUpdateRequest.getTitle().isBlank())
-            old.setTitle(compilationUpdateRequest.getTitle());
+        if (savedCompilationDto.getPinned() != null)
+            old.setPinned(savedCompilationDto.getPinned());
+        if (savedCompilationDto.getTitle() != null && !savedCompilationDto.getTitle().isBlank())
+            old.setTitle(savedCompilationDto.getTitle());
 
         var updated = compilationRepository.save(old);
         return compilationMapper.mapToCompilationDto(updated);
