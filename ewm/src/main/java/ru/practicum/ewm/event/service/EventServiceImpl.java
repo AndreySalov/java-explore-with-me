@@ -5,8 +5,6 @@ import com.querydsl.core.types.dsl.Expressions;
 import io.micrometer.core.instrument.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -61,6 +59,7 @@ import static ru.practicum.ewm.event.enums.StateActionForUser.SEND_TO_REVIEW;
 @Transactional(readOnly = true)
 public class EventServiceImpl implements EventService {
 
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Patterns.DATE_PATTERN);
     private final CategoryRepository categoryRepository;
     private final EventRepository eventRepository;
     private final UserRepository userRepository;
@@ -69,9 +68,7 @@ public class EventServiceImpl implements EventService {
     private final LocationMapper locationMapper;
     private final CategoryMapper categoryMapper;
     private final UserMapper userMapper;
-    ApplicationContext context = new AnnotationConfigApplicationContext("ru.practicum.stats.client");
-    private final StatsClient statsClient = context.getBean(StatsClient.class);
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Patterns.DATE_PATTERN);
+    private final StatsClient statsClient;
 
     @Override
     @Transactional
