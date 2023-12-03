@@ -1,11 +1,11 @@
-package ru.practicum.explorewithme;
+package ru.yandex.practicum;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MainServerApp {
+public class EwmServiceApp {
     public static void main(String[] args) {
-        SpringApplication.run(MainServerApp.class, args);
+        SpringApplication.run(EwmServiceApp.class, args);
     }
 }
