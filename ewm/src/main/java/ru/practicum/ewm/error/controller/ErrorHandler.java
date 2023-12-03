@@ -45,7 +45,7 @@ public class ErrorHandler {
                 .status(BAD_REQUEST.getReasonPhrase().toUpperCase())
                 .reason("Incorrectly made request")
                 .message(exception.getMessage())
-                .timestamp(now().format(formatter))
+                .timestamp(now().format(ofPattern(Patterns.DATE_PATTERN)))
                 .timestamp(now().format(formatter))
                 .build();
     }
@@ -58,7 +58,7 @@ public class ErrorHandler {
                 .status(BAD_REQUEST.getReasonPhrase().toUpperCase())
                 .reason("Incorrectly made request")
                 .message(exception.getMessage())
-                .timestamp(now().format(formatter))
+                .timestamp(now().format(ofPattern(Patterns.DATE_PATTERN)))
                 .timestamp(now().format(formatter))
                 .build();
     }
@@ -71,7 +71,7 @@ public class ErrorHandler {
                 .status(BAD_REQUEST.getReasonPhrase().toUpperCase())
                 .reason("Incorrectly made request")
                 .message(exception.getMessage())
-                .timestamp(now().format(formatter))
+                .timestamp(now().format(ofPattern(Patterns.DATE_PATTERN)))
                 .timestamp(now().format(formatter))
                 .build();
     }
@@ -84,7 +84,7 @@ public class ErrorHandler {
                 .status(BAD_REQUEST.getReasonPhrase().toUpperCase())
                 .reason("Incorrectly made request")
                 .message(exception.getMessage())
-                .timestamp(now().format(formatter))
+                .timestamp(now().format(ofPattern(Patterns.DATE_PATTERN)))
                 .timestamp(now().format(formatter))
                 .build();
     }
@@ -97,7 +97,7 @@ public class ErrorHandler {
                 .status(BAD_REQUEST.getReasonPhrase().toUpperCase())
                 .reason("Incorrectly made request")
                 .message(exception.getMessage())
-                .timestamp(now().format(formatter))
+                .timestamp(now().format(ofPattern(Patterns.DATE_PATTERN)))
                 .timestamp(now().format(formatter))
                 .build();
     }

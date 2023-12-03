@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.practicum.ewm.compilation.dto.CompilationDto;
+import ru.practicum.ewm.compilation.dto.CompilationUpdateRequest;
 import ru.practicum.ewm.compilation.dto.SavedCompilationDto;
 import ru.practicum.ewm.compilation.entity.Compilation;
 import ru.practicum.ewm.compilation.mapper.CompilationMapper;
@@ -58,7 +59,7 @@ public class CompilationServiceImpl implements CompilationService {
     @Override
     @Transactional
     public CompilationDto updateCompilation(Long compId,
-                                            SavedCompilationDto compilationUpdateRequest) {
+                                            CompilationUpdateRequest compilationUpdateRequest) {
         var old = compilationRepository.findById(compId).orElseThrow(
                 () -> new NotExistException("Compilation does not exist"));
         var eventsIds = compilationUpdateRequest.getEvents();

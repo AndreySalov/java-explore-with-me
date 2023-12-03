@@ -3,6 +3,7 @@ package ru.practicum.ewm.compilation.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.practicum.ewm.compilation.dto.CompilationDto;
+import ru.practicum.ewm.compilation.dto.CompilationUpdateRequest;
 import ru.practicum.ewm.compilation.dto.SavedCompilationDto;
 import ru.practicum.ewm.compilation.service.CompilationService;
 
@@ -25,7 +26,7 @@ public class CompilationAdminController {
     }
 
     @PatchMapping("/compilations/{compId}")
-    public CompilationDto updateCompilation(@Valid @RequestBody SavedCompilationDto compilationUpdateRequest,
+    public CompilationDto updateCompilation(@Valid @RequestBody CompilationUpdateRequest compilationUpdateRequest,
                                             @PathVariable Long compId) {
         return compilationService.updateCompilation(compId, compilationUpdateRequest);
     }
