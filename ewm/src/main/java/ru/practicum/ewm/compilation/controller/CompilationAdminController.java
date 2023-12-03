@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.practicum.ewm.compilation.dto.CompilationDto;
 import ru.practicum.ewm.compilation.dto.CompilationUpdateRequest;
-import ru.practicum.ewm.compilation.dto.SavedCompilationDto;
 import ru.practicum.ewm.compilation.service.CompilationService;
 
 import javax.validation.Valid;
@@ -21,7 +20,7 @@ public class CompilationAdminController {
 
     @ResponseStatus(CREATED)
     @PostMapping("/compilations")
-    public CompilationDto saveCompilation(@Valid @RequestBody SavedCompilationDto savedCompilationDto) {
+    public CompilationDto saveCompilation(@Valid @RequestBody CompilationUpdateRequest savedCompilationDto) {
         return compilationService.saveCompilation(savedCompilationDto);
     }
 

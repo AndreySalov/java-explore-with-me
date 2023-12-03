@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.practicum.ewm.compilation.dto.CompilationDto;
 import ru.practicum.ewm.compilation.dto.CompilationUpdateRequest;
-import ru.practicum.ewm.compilation.dto.SavedCompilationDto;
 import ru.practicum.ewm.compilation.entity.Compilation;
 import ru.practicum.ewm.compilation.mapper.CompilationMapper;
 import ru.practicum.ewm.compilation.repository.CompilationRepository;
@@ -32,7 +31,7 @@ public class CompilationServiceImpl implements CompilationService {
 
     @Override
     @Transactional
-    public CompilationDto saveCompilation(SavedCompilationDto savedCompilationDto) {
+    public CompilationDto saveCompilation(CompilationUpdateRequest savedCompilationDto) {
         List<Event> events;
         if (savedCompilationDto.getEvents() != null) {
             events = eventRepository.findAllByIdIn(savedCompilationDto.getEvents());
