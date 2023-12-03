@@ -3,6 +3,7 @@ package ru.practicum.ewm.category.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.practicum.ewm.category.dto.CategoryDto;
+import ru.practicum.ewm.category.dto.SavedCategoryDto;
 import ru.practicum.ewm.category.service.CategoryService;
 
 import javax.validation.Valid;
@@ -19,7 +20,7 @@ public class CategoryAdminController {
 
     @ResponseStatus(CREATED)
     @PostMapping("/categories")
-    public CategoryDto saveCategory(@Valid @RequestBody CategoryDto savedCategoryDto) {
+    public CategoryDto saveCategory(@Valid @RequestBody SavedCategoryDto savedCategoryDto) {
         return categoryService.saveCategory(savedCategoryDto);
     }
 

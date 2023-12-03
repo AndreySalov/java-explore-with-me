@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.practicum.ewm.category.dto.CategoryDto;
+import ru.practicum.ewm.category.dto.SavedCategoryDto;
 import ru.practicum.ewm.category.exception.CategoryNotEmptyException;
 import ru.practicum.ewm.category.mapper.CategoryMapper;
 import ru.practicum.ewm.category.repository.CategoryRepository;
@@ -27,7 +28,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     @Transactional
-    public CategoryDto saveCategory(CategoryDto savedCategoryDto) {
+    public CategoryDto saveCategory(SavedCategoryDto savedCategoryDto) {
         var entity = categoryMapper.toCategory(savedCategoryDto);
         var saved = categoryRepository.save(entity);
         return categoryMapper.toCategoryDto(saved);
