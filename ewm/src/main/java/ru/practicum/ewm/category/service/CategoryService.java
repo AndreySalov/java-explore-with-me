@@ -1,13 +1,12 @@
 package ru.practicum.ewm.category.service;
 
 import ru.practicum.ewm.category.dto.CategoryDto;
-import ru.practicum.ewm.category.dto.SavedCategoryDto;
 
 import java.util.List;
 
 public interface CategoryService {
 
-    CategoryDto saveCategory(SavedCategoryDto savedCategoryDto);
+    CategoryDto saveCategory(CategoryDto savedCategoryDto);
 
     CategoryDto updateCategory(Long id, CategoryDto categoryDto);
 
