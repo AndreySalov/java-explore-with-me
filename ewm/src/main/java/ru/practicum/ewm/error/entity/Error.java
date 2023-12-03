@@ -1,8 +1,9 @@
 package ru.practicum.ewm.error.entity;
 
-import lombok.*;
-
-import java.util.Objects;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Builder
 @NoArgsConstructor
