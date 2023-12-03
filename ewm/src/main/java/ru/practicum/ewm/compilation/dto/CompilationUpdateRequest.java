@@ -2,6 +2,7 @@ package ru.practicum.ewm.compilation.dto;
 
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Set;
 
@@ -13,6 +14,7 @@ import java.util.Set;
 public class CompilationUpdateRequest {
 
     @Size(max = 50)
+    @NotBlank
     private String title;
     private Boolean pinned;
     private Set<Long> events;
