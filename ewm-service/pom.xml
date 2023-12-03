@@ -85,13 +85,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-        <stats-dto>0.0.1-SNAPSHOT</stats-dto>
-        <stats-client>0.0.1-SNAPSHOT</stats-client>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
 </project>
