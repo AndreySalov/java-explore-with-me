@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.practicum.ewm.compilation.dto.CompilationDto;
+import ru.practicum.ewm.compilation.dto.CompilationUpdateRequest;
 import ru.practicum.ewm.compilation.dto.SavedCompilationDto;
 import ru.practicum.ewm.compilation.entity.Compilation;
 import ru.practicum.ewm.compilation.mapper.CompilationMapper;
@@ -58,18 +59,18 @@ public class CompilationServiceImpl implements CompilationService {
     @Override
     @Transactional
     public CompilationDto updateCompilation(Long compId,
-                                            SavedCompilationDto savedCompilationDto) {
+                                            CompilationUpdateRequest compilationUpdateRequest) {
         var old = compilationRepository.findById(compId).orElseThrow(
                 () -> new NotExistException("Compilation does not exist"));
-        var eventsIds = savedCompilationDto.getEvents();
+        var eventsIds = compilationUpdateRequest.getEvents();
         if (eventsIds != null) {
             var events = eventRepository.findAllByIdIn(eventsIds);
             old.setEvents(new HashSet<>(events));
         }
-        if (savedCompilationDto.getPinned() != null)
-            old.setPinned(savedCompilationDto.getPinned());
-        if (savedCompilationDto.getTitle() != null && !savedCompilationDto.getTitle().isBlank())
-            old.setTitle(savedCompilationDto.getTitle());
+        if (compilationUpdateRequest.getPinned() != null)
+            old.setPinned(compilationUpdateRequest.getPinned());
+        if (compilationUpdateRequest.getTitle() != null && !compilationUpdateRequest.getTitle().isBlank())
+            old.setTitle(compilationUpdateRequest.getTitle());
 
         var updated = compilationRepository.save(old);
         return compilationMapper.mapToCompilationDto(updated);
