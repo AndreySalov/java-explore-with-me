@@ -5,6 +5,7 @@ import lombok.*;
 import ru.practicum.ewm.category.dto.CategoryDto;
 import ru.practicum.ewm.event.enums.EventState;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 import static com.fasterxml.jackson.annotation.JsonFormat.Shape.STRING;
@@ -23,6 +24,7 @@ public class LongEventDto {
     private Long confirmedRequests;
 
     @JsonFormat(shape = STRING, pattern = DATE_PATTERN)
+    @NotBlank
     private String createdOn;
 
     private String description;
