@@ -91,7 +91,7 @@ public class Event {
         this.requestModeration = requireNonNullElse(requestModeration, true);
         this.createdOn = requireNonNullElseGet(createdOn, LocalDateTime::now);
         this.state = requireNonNullElse(eventState, PENDING);
-        this.participantLimit = participantLimit;
+        this.participantLimit = requireNonNullElse(participantLimit,0);
         this.description = description;
         this.annotation = annotation;
         this.publishedOn = publishedOn;
@@ -99,8 +99,8 @@ public class Event {
         this.initiator = initiator;
         this.category = category;
         this.location = location;
-        this.title = title;
-        this.paid = paid;
+        this.title = requireNonNullElse(title,"");
+        this.paid = requireNonNullElse(paid , false);
         this.id = id;
     }
 
