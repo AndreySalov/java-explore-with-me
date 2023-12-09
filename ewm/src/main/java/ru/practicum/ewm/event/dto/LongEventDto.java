@@ -35,6 +35,7 @@ public class LongEventDto {
     private ShortEventDto initiator;
     private LocationDto location;
     private Boolean paid;
+    @NotBlank
     private Long participantLimit;
 
     @JsonFormat(shape = STRING, pattern = DATE_PATTERN)
@@ -42,6 +43,7 @@ public class LongEventDto {
 
     private Boolean requestModeration;
     private EventState state;
+    @NotBlank
     private String title;
     private Long views;
 }

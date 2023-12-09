@@ -71,7 +71,7 @@ public class Event {
     @Column(name = "state", length = 30)
     private EventState state;
 
-    @Column(name = "title", length = 120)
+    @Column(name = "title", length = 120, nullable = false)
     private String title;
 
     public Event(Long id,
