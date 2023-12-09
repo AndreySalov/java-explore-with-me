@@ -34,7 +34,7 @@ public class Event {
     @Column(name = "annotation", length = 2000)
     private String annotation;
 
-    @Column(name = "created_on" , nullable = false)
+    @Column(name = "created_on", nullable = false)
     private LocalDateTime createdOn;
 
     @Column(name = "description", length = 7000)
