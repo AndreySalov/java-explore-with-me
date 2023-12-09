@@ -34,7 +34,7 @@ public class Event {
     @Column(name = "annotation", length = 2000)
     private String annotation;
 
-    @Column(name = "created_on", nullable = false)
+    @Column(name = "created_on" , nullable = false)
     private LocalDateTime createdOn;
 
     @Column(name = "description", length = 7000)
@@ -55,10 +55,10 @@ public class Event {
     @JoinColumn(name = "location_id", referencedColumnName = "id")
     private Location location;
 
-    @Column(name = "paid", nullable = false)
+    @Column(name = "paid")
     private Boolean paid;
 
-    @Column(name = "participant_limit", nullable = false)
+    @Column(name = "participant_limit")
     private int participantLimit;
 
     @Column(name = "published_on")
@@ -67,12 +67,12 @@ public class Event {
     @Column(name = "request_moderation")
     private Boolean requestModeration;
 
-    @Column(name = "title", length = 120, nullable = false)
-    private String title;
-
     @Enumerated(STRING)
-    @Column(name = "state", length = 30, nullable = false)
+    @Column(name = "state", length = 30)
     private EventState state;
+
+    @Column(name = "title", length = 120)
+    private String title;
 
     public Event(Long id,
                  String annotation,
@@ -91,7 +91,7 @@ public class Event {
         this.requestModeration = requireNonNullElse(requestModeration, true);
         this.createdOn = requireNonNullElseGet(createdOn, LocalDateTime::now);
         this.state = requireNonNullElse(eventState, PENDING);
-        this.participantLimit = requireNonNullElse(participantLimit, 0);
+        this.participantLimit = participantLimit;
         this.description = description;
         this.annotation = annotation;
         this.publishedOn = publishedOn;
@@ -99,8 +99,8 @@ public class Event {
         this.initiator = initiator;
         this.category = category;
         this.location = location;
-        this.title = requireNonNullElse(title, "");
-        this.paid = requireNonNullElse(paid, false);
+        this.title = title;
+        this.paid = paid;
         this.id = id;
     }
 
