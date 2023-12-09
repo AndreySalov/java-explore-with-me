@@ -34,7 +34,7 @@ public class Event {
     @Column(name = "annotation", length = 2000)
     private String annotation;
 
-    @Column(name = "created_on")
+    @Column(name = "created_on" , nullable = false)
     private LocalDateTime createdOn;
 
     @Column(name = "description", length = 7000)
@@ -55,10 +55,10 @@ public class Event {
     @JoinColumn(name = "location_id", referencedColumnName = "id")
     private Location location;
 
-    @Column(name = "paid")
+    @Column(name = "paid",  nullable = false)
     private Boolean paid;
 
-    @Column(name = "participant_limit")
+    @Column(name = "participant_limit",  nullable = false)
     private int participantLimit;
 
     @Column(name = "published_on")
@@ -68,10 +68,10 @@ public class Event {
     private Boolean requestModeration;
 
     @Enumerated(STRING)
-    @Column(name = "state", length = 30)
+    @Column(name = "state", length = 30,  nullable = false)
     private EventState state;
 
-    @Column(name = "title", length = 120)
+    @Column(name = "title", length = 120,  nullable = false)
     private String title;
 
     public Event(Long id,
