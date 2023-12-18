@@ -46,4 +46,5 @@ public class LongEventDto {
     @NotBlank
     private String title;
     private Long views;
+    private Integer comments;
 }
